@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:namegenerator/screens/generated_result.dart';
+import 'package:namegenerator/screens/saved_list.dart';
 
 void main() => runApp(MyApp());
 
@@ -55,10 +56,19 @@ class _MyHomePageState extends State<MyHomePage> {
           actions: <Widget>[
             IconButton(
               icon: Icon(Icons.list),
-              onPressed: () {},
+              onPressed: _pushSaved,
             ),
           ],
         ),
         body: GeneratedResult());
+  }
+
+  void _pushSaved() {
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (_) => SavedList(),
+      ),
+    );
   }
 }

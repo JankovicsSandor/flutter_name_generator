@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:namegenerator/models/bussiness_name.dart';
+import 'package:rxdart/rxdart.dart';
 
 class ListStream {
   static List<BussinessName> bussinesses = [];
@@ -25,7 +26,7 @@ class ListStream {
     _controller.sink.add(bussinesses);
   }
 
-  static final _controller = StreamController<List<BussinessName>>();
+  static final _controller = ReplaySubject<List<BussinessName>>();
 
   static Stream<List<BussinessName>> get stream => _controller.stream;
 }

@@ -20,7 +20,7 @@ Future<Database> getDatabase() async {
   );
 }
 
-Future<void> generateRandomNames() {
+Future<void> generateRandomNames() async {
   List<BussinessName> nameList = [];
   for (var i = 0; i < 5; i++) {
     nameList.add(new BussinessName(id: 0, name: "Item: $i", isLiked: false));
