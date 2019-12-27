@@ -18,7 +18,9 @@ class _SavedListState extends State<SavedList> {
         title: Text("Saved instances"),
       ),
       body: StreamBuilder<List<BussinessName>>(
-        stream: ListStream.stream,
+        stream: ListStream.stream.map((list) {
+          return list.where((item) => item.isLiked).toList();
+        }),
         builder: (context, snapshot) {
           if (snapshot.hasData) {
             return ListView.builder(
@@ -30,7 +32,6 @@ class _SavedListState extends State<SavedList> {
               },
             );
           }
-
           return Center(
             child: CircularProgressIndicator(),
           );
